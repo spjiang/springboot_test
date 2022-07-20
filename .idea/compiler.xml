@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common" />
         <module name="jpa-appliction" />
         <module name="jpa-server" />
       </profile>
@@ -14,6 +15,7 @@
     <bytecodeTargetLevel>
       <module name="allocate" target="8" />
       <module name="application" target="8" />
+      <module name="common" target="8" />
       <module name="jpa" target="8" />
       <module name="jpa-appliction" target="8" />
       <module name="jpa-server" target="8" />
@@ -23,6 +25,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="common" options="-parameters" />
       <module name="jpa-appliction" options="-parameters" />
       <module name="jpa-server" options="-parameters" />
     </option>

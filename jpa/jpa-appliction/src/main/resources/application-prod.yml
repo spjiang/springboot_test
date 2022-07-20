@@ -1,0 +1,68 @@
+# 开启调试模式
+debug: true
+server:
+  port: 8888
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  mvc:
+    servlet:
+      load-on-startup: 1
+  datasource:
+    # 数据源配置
+    driverClassName: com.mysql.jdbc.Driver
+    platform: mysql
+    url: jdbc:mysql://${SRV_MYSQL_IP:127.0.0.1}:${SRV_MYSQL_PORT:3366}/parking_test?useUnicode=true&characterEncoding=utf-8&characterSetResults=utf8
+    username: root
+    password: ${SRV_MYSQL_ROOT_PASSWORD:123456}
+    # 全局druid参数，绝大部分值和默认保持一致。(现已支持的参数如下,不清楚含义不要乱设置)
+    # 连接池的配置信息
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,slf4j
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    initialization-mode: always
+    continue-on-error: true
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    hibernate:
+      ddl-auto: none #第一次建 create 后面用 update
+    show-sql: true
+swagger:
+  enabled: true
+  title: SpringBoot-Test v1
+  version: 1.0
+  description: SpringBoot-Test v1
+  contact:
+    name: spjiang-dev
+    email: spjiang@aliyun.com
+  ##配置API扫描路径
+  base-package: com.spjiang.jpa
+  # 配置包含的URL
+  base-path: /**
+  # 配置排除的URL
+  exclude-path:
+    - /oauth/**

@@ -1,5 +1,6 @@
 package com.spjiang;
 
+import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -14,12 +15,13 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @create: 2022-07-19 17:44
  */
 @SpringBootApplication
+@EnableSwagger2Doc
 @EnableAsync
 @EnableScheduling
 @ServletComponentScan
 public class JpaApplication {
     public static void main(String[] args) {
-        System.out.println("start JpaApplication");
+        System.out.println("start... JpaApplication");
         SpringApplication.run(JpaApplication.class,args);
     }
 }

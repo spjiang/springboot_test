@@ -8,7 +8,6 @@
         <groupId>org.spjiang</groupId>
         <artifactId>springboot_test</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/>
     </parent>
 
     <artifactId>jpa</artifactId>
